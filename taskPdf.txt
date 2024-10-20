@@ -1,0 +1,224 @@
+#include<iostream>
+#include<string>
+#include<sstream>
+#include<bits/stdc++.h>
+using namespace std; 
+
+
+// Taske 1
+
+void reducetripleString(char s[],int size){
+     
+   
+   string newString="";
+   // if the string is empty
+   if (10 == 0)
+     return;
+ 
+   // Going through all character of string
+    for(int i=0;i<size;i++){
+      //checking if s[i] is not same as s[i+1] then add it into str
+      
+      	if(i==0 || i==1)
+      	{
+      		if(s[0]==' '&&s[1]==' '&&s[2]==' ')
+      		{
+      		cout<<"  \" empty String \"  ";	
+			}
+		}
+      	
+        if ( s[i] == s[i+1]&&s[i+1]==s[i+2]){
+        s[i] = ' '; // make it empty
+        s[i+1] =' ';// make it empty
+        s[i+2] =' ';// make it empty 
+        i++; // go ahead
+    }
+    else
+    	if(s[i]!=' ')
+    	{
+    		newString+=s[i]; // concatenate to new string 	
+		}
+        
+    }
+ 
+ 	
+   cout<<"\n"<<newString<<endl;    
+}
+
+
+
+
+
+
+
+int main()
+{
+	string S; 
+	cin>>S; 
+	int n = S.size(); 	
+	char array[n]; 
+	for(int i=0;i<S.size();i++)
+	{
+		array[i] = S[i]; 
+	}
+	int len = sizeof(array) / sizeof(array[0]);
+	reducetripleString(array,len); 
+	return 0; 
+}
+
+
+
+
+
+/*
+// Taske 2
+
+#define SIZE 40
+class Stack
+{
+	private:
+		int stackSize; 
+		int *array;
+		
+	public:
+		int newSize;  
+		Stack()
+		{
+			array = new int[SIZE]; 
+			newSize = 0;  
+		}
+		
+		bool full()
+		{
+			if(stackSize==newSize)
+			{
+				return true; 
+			}
+			else
+			{
+				return false;
+			}
+		}
+		bool empty()
+		{
+			if(newSize==-1)
+			{
+				return true; 	
+			} 
+			else
+			{
+				return false; 
+			}
+		}
+		void push(int ele)
+		{
+			if(newSize<stackSize)
+			{
+				
+				array[newSize]= ele; 
+				newSize++; 
+			}
+		}
+		
+		int pop()
+		{
+			if(newSize>=0)
+			{
+				int ele =  array[newSize];
+				newSize--; 
+				return ele;  
+				 
+			}
+			else
+			{
+				return -1; 
+			}
+			 
+				
+		}
+		
+		int top()
+		{
+			return array[newSize]; 
+		}
+		
+		 
+}; 
+
+
+
+int main()
+{
+	string addNumberResult = " "; 
+	string number_1,number_2;
+	cin>>number_1;  
+	cin>>number_2; 
+	int number_1_int[number_1.length()];
+	int number_2_int[number_2.length()]; 
+	for(int i=0;i<number_1.length();i++)
+	{
+		number_1_int[i] = number_1[i]-'0'; 
+	}
+	
+	for(int i=0;i<number_2.length();i++)
+	{
+		number_2_int[i] = number_2[i]-'0'; 
+	}
+	
+	
+	cout<<"\n";
+		for(int i=0;i<number_1.length();i++)
+	{
+		cout<<number_1_int[i]; 
+	}
+	
+	cout<<"\n";
+	
+		for(int i=0;i<number_1.length();i++)
+	{
+		cout<<number_2_int[i]; 
+	}
+	
+	
+	Stack stack; 
+	Stack stack2;
+	Stack stack3;
+	
+	for(int i=0;i<number_1.length();i++)
+	{
+		stack.push(number_1_int[i]);	
+	}
+	
+		for(int i=0;i<number_2.length();i++)
+	{
+		stack2.push(number_2_int[i]);	
+	}
+	int carry = 0;       
+	while(!stack.empty()&&!stack2.empty())
+	{
+	 
+	      int sum = stack.pop()+stack2.pop()+carry; 
+	      stack3.push(sum%10);
+	      carry = sum/10;
+
+	}
+	if(carry)
+		stack3.push(carry); 
+	
+	cout<<"\n"; 
+	stack3.pop(); 
+	while(!stack3.empty())
+	{
+		
+		if(stack3.newSize==0)
+		{
+			break;
+		}
+	  cout<<stack3.pop(); 
+	}
+	
+	return 0; 
+	
+}
+
+*/
